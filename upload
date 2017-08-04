@@ -11,8 +11,11 @@ apm list --installed --bare > atom-package-list.txt
 # copy iTerm2 preferences
 cp /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
 
-# copy zsh theme and plugins
-cp ~/.zsh/* ./zsh\ add-ons/ 
+# copy zsh plugins
+cp ~/.zsh/* ./zsh\ add-ons/
+
+# copy zsh theme
+cp $ZSH/themes/ryanjhill ./zsh\ add-ons/
 
 echo "All backed up! Pushing to github..."
 echo
