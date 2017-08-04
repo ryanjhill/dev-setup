@@ -6,9 +6,22 @@ cp $HOME/.vimrc ./dotfiles/.vimrc
 cp $HOME/.zshrc ./dotfiles/.zshrc
 
 # copy atom's package list into a txt file
-apm list --installed --bare > package-list.txt
+apm list --installed --bare > atom-package-list.txt
 
 # copy iTerm2 preferences
 cp /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
 
-echo "Done! You might want to back up BTT settings manually."
+echo "All backed up! Pushing to github..."
+echo
+
+# create a timestamp
+now="$(date +'%m/%d/%Y at %r')"
+
+# push to git
+git pull
+git add -A
+git commit -m "dev setup script: backed up on $now"
+git push origin master
+
+echo "Done! Pushed to github on $now"
+echo "You might want to back up BTT settings manually."
