@@ -72,7 +72,7 @@ check_default_shell
 echo "Did you want to replace your old dotfiles? (Type num to choose)"
 select yn in "Yes" "No"; do
     case $yn in
-        Yes ) printf "Replacing dotfiles...\n\n"; cp .vimrc $HOME/.vimrc; cp .zshrc $HOME/.zshrc; break;;
+        Yes ) printf "Replacing dotfiles...\n\n"; cp ./dotfiles/.vimrc $HOME/.vimrc; cp ./dotfiles/.zshrc $HOME/.zshrc; break;;
         No )  echo "Ok, I'll leave the old dotfiles."; break;;
     esac
 done
