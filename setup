@@ -1,0 +1,80 @@
+prompt_install() {
+  if [$1 == "Homebrew"]; then
+    echo "Installing Homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif [[ $1 == "oh-my-zsh" ]]; then
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  else
+    echo "Installing $1..."
+    brew install $1
+  fi
+  printf '\n'
+}
+
+check_for_software() {
+	echo "Checking to see if $1 is installed..."
+	if ! [ -x "$(command -v $1)" ]; then
+		prompt_install $2
+	else
+		echo "$2 is already installed."
+	fi
+  printf '\n'
+}
+
+check_default_shell() {
+	if [ -z "${SHELL##*zsh*}" ] ;then
+		echo "Default shell is already zsh."
+	else
+    echo "Changing shell..."
+    chsh -s $(which zsh)
+	fi
+  printf '\n'
+}
+
+check_for_package() {
+  echo "Checking to see if $1 is installed..."
+  if [ -f $1 ] || [ -d $1 ]; then
+    echo "$2 is already installed!"
+  else
+    prompt_install $2
+  fi
+  printf '\n'
+}
+
+echo "We're going to do the following:"
+echo "  1. Check to make sure you have all of the necessary programs"
+echo "  2. We'll help you install these programs if you don't"
+echo "  3. We're going to check to see if your default shell is zsh"
+echo "  4. We'll try to change your shell to zsh if it's not"
+echo "  5. Check to see if you want new dotfiles"
+echo "  6. We'll move those new dotfiles over (if that's okay)"
+echo
+echo "It's recommended that you backup your setup before you begin."
+echo
+echo "Let's get started? (Type num to choose)"
+
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) printf "Awesome, let's go!\n\n"; break;;
+        No )  echo "Quitting, nothing was changed."; exit;;
+    esac
+done
+
+# check_for_type terminal_name installation_name
+check_for_software brew Homebrew
+check_for_software zsh zsh
+check_for_package "$HOME/.oh-my-zsh" oh-my-zsh
+check_for_software mvim macvim
+
+check_default_shell
+
+echo "Did you want to replace your old dotfiles? (Type num to choose)"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) printf "Replacing dotfiles...\n\n"; cp .vimrc $HOME/.vimrc; cp .zshrc $HOME/.zshrc; break;;
+        No )  echo "Ok, I'll leave the old dotfiles."; break;;
+    esac
+done
+
+printf "\nPlease log out and log back in for default shell to be initialized.\n"

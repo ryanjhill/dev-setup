@@ -1,0 +1,14 @@
+echo "Prepping dotfiles and preferences for github..."
+echo
+
+# copy dotfiles
+cp $HOME/.vimrc ./dotfiles/.vimrc
+cp $HOME/.zshrc ./dotfiles/.zshrc
+
+# copy atom's package list into a txt file
+apm list --installed --bare > package-list.txt
+
+# copy iTerm2 preferences
+cp /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
+
+echo "Done! You might want to back up BTT settings manually."
