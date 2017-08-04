@@ -23,5 +23,6 @@ git add -A
 git commit -m "dev setup script: backed up on $now"
 git push origin master
 
+echo
 echo "Done! Pushed to github on $now"
 echo "You might want to back up BTT settings manually."
