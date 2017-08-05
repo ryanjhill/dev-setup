@@ -17,6 +17,9 @@ cp ~/.zsh/* ./zsh\ add-ons/
 # copy zsh theme
 cp $ZSH/themes/ryanjhill ./zsh\ add-ons/
 
+# copy .vim content (packages & bundles)
+cp $HOME/.vim/* ./vim\ packages
+
 echo "All backed up! Pushing to github..."
 echo
 
