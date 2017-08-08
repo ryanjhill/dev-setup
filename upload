@@ -8,7 +8,7 @@ cp -R  $HOME/.zshrc ./dotfiles/.zshrc
 # copy atom's package list, also save preferences
 apm list --installed --bare > atom-package-list.txt
 sed -i -e 's/@.*//g' ./atom-package-list-filtered.txt
-cp -R $HOME/.atom/*.cson ./atom\ packages/
+cp -R $HOME/.atom/*.* ./atom\ packages/
 
 # copy iTerm2 preferences
 cp -R  /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist

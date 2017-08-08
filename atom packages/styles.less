@@ -1,0 +1,76 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+  font-size: 14px;
+}
+li.file.entry.list-item, .list-tree li.list-nested-item > .list-item {
+  line-height: 36px;
+}
+
+
+// Stying for the indent guide bar
+.indent-guide-improved {
+  background-color: gray;
+  &.indent-guide-stack {
+    background-color: white;
+    &.indent-guide-active {
+      background-color: #99c27c;
+    }
+  }
+}
+
+// Make tabs multi-row
+.tab-bar {
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.tab-bar .tab,
+.tab-bar .tab.active {
+  flex-basis: auto;
+}
+
+.markup.underline.link.hyperlink {
+  text-decoration: none !important;
+}
+
+language-hyperlink {
+  text-decoration: none !important;
+}
+
+.editor .markup.underline.link.hyperlink {
+  color: #F9EE98;
+  text-decoration: none;
+}
+
+// Stlying for the scrollbar
+.tree-view-resizer, atom-text-editor::shadow  {
+  ::-webkit-scrollbar {
+    background-color: #282c34;
+
+    &-track {}
+
+    &-thumb {
+      background-color: #373d48;
+
+      &:window-inactive {
+        background-color: #373d48;
+      }
+    }
+
+    &-corner {
+      background-color: #262626;
+    }
+  }
+}

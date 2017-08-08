@@ -6,7 +6,8 @@ prompt_install() {
         echo "$1 is already installed"
       else
         echo "Installing Homebrew..."
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"      fi;;
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      fi;;
     oh-my-zsh)
       if [ -f $2 ] || [ -d $2 ]; then
         echo "Installing oh-my-zsh..."
@@ -62,14 +63,14 @@ prompt_install macvim
 brew tap caskroom/cask
 brew cask install atom
 apm_install_by_list atom-package-list-filtered.txt
-cp -R ./atom\ packages/*.cson $HOME/.atom/
+cp -R ./atom\ packages/* $HOME/.atom/
 
 # Replacing old dotfiles
 printf "Replacing dotfiles...\n\n"
 cp -R ./dotfiles/.vimrc $HOME/.vimrc
 cp -R ./dotfiles/.zshrc $HOME/.zshrc
 sed -i -e "2s/rjhill/${USER}/g" $HOME/.zshrc
-cp -R ./zsh\ add-ons/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-theme
+cp -R ./zsh\ files/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-theme
 mkdir -p $HOME/.vim/
 cp -R ./vim\ packages/* $HOME/.vim/
 

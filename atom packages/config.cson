@@ -4,7 +4,6 @@
   core:
     disabledPackages: [
       "jshint"
-      "indent-guide-improved"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -15,7 +14,6 @@
   editor:
     fontFamily: "Hack"
     lineHeight: 1.6
-    showIndentGuide: true
     softWrap: true
     tabType: "soft"
   "exception-reporting":
