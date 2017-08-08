@@ -22,7 +22,7 @@ sudo cp -R  $HOME/.vim/* ./vim\ packages
 # creating public version of BTT w/o personal links
 cat Better\ Touch\ Tool\ Preferences.json | sed '/Paste/d' > BTT-pub.json
 awk '/Paste/{print NR}' Better\ Touch\ Tool\ Preferences.json > tmp.txt
-awk '{print ($1 - 4)}' tmp.txt > sed -e "${1}/+11d" Better\ Touch\ Tool\ Preferences.json > final.json
+awk '{print ($1 - 4)}' tmp.txt > sed -e '$1/+11d' Better\ Touch\ Tool\ Preferences.json > final.json
 # -4, +11
 #
 # sed -e '5,10d;12d' BTT-pub.json
