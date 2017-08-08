@@ -1,58 +1,42 @@
 prompt_install() {
-  if [$1 == "Homebrew"]; then
-    echo "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif [[ $1 == "oh-my-zsh" ]]; then
-    echo "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  else
-    echo "Installing $1..."
-    brew install $1
-  fi
-  printf '\n'
-}
-
-check_for_software() {
-	echo "Checking to see if $1 is installed..."
-	if ! [ -x "$(command -v $1)" ]; then
-		prompt_install $2
-	else
-		echo "$2 is already installed."
-	fi
-  printf '\n'
-}
-
-check_default_shell() {
-	if [ -z "${SHELL##*zsh*}" ] ;then
-		echo "Default shell is already zsh."
-	else
-    echo "Changing shell..."
-    chsh -s $(which zsh)
-	fi
-  printf '\n'
-}
-
-check_for_package() {
   echo "Checking to see if $1 is installed..."
-  if [ -f $1 ] || [ -d $1 ]; then
-    echo "$2 is already installed!"
-  else
-    prompt_install $2
-  fi
-  printf '\n'
+  case $1 in
+    Homebrew)
+      if [ -x "$(command -v $2)" ]; then
+        echo "$1 is already installed"
+      else
+        echo "Installing Homebrew..."
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"      fi;;
+    oh-my-zsh)
+      if [ -f $2 ] || [ -d $2 ]; then
+        echo "Installing oh-my-zsh..."
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      else
+        echo "$1 is already installed"
+      fi;;
+    *)
+      echo "Installing $1..."
+      brew install $1;;
+  esac
+  printf '\n––––––––––\n\n'
+}
+
+apm_install_by_list() {
+  while IFS='' read -r line || [[ -n "$line" ]]; do
+    apm install $line
+  done < "$1"
 }
 
 echo "We're going to do the following:"
-echo "  1. Check to make sure you have all of the necessary programs"
-echo "  2. We'll help you install these programs if you don't"
-echo "  3. We're going to check to see if your default shell is zsh"
-echo "  4. We'll try to change your shell to zsh if it's not"
-echo "  5. Check to see if you want new dotfiles"
-echo "  6. We'll move those new dotfiles over (if that's okay)"
+echo "- - 1. Check to make sure you have xcode terminal tools up-to-date"
+echo "- - 2. We'll install homebrew and homebrew's cask library"
+echo "- - 3. We're going to upgrade the terminal with zsh, oh-my-zsh, and a good mac vim client"
+echo "- - 4. We'll install atom and some really great packages for it too"
+echo "- - 5. We'll move those new dotfiles over"
 echo
-echo "It's recommended that you backup your setup before you begin."
+echo "It's recommended that you backup your setup before you begin. Otherwise things might get deleted."
 echo
-echo "Let's get started? (Type num to choose)"
+echo "Are you ready to get started? (Type num to choose)"
 
 select yn in "Yes" "No"; do
     case $yn in
@@ -61,25 +45,32 @@ select yn in "Yes" "No"; do
     esac
 done
 
-# check_for_type terminal_name installation_name
-check_for_software brew Homebrew
-check_for_software zsh zsh
-check_for_package "$HOME/.oh-my-zsh" oh-my-zsh
-check_for_software mvim macvim
+# Make sure xcode is up-to-date! If it's not then stuff can go wonky
+xcode-select --install
 
-check_default_shell
+# Installing homebrew and cask
+prompt_install Homebrew brew
 
-echo "Did you want to replace your old dotfiles? (Type num to choose)"
-select yn in "Yes" "No"; do
-    case $yn in
-        Yes ) printf "Replacing dotfiles...\n\n";
-        cp ./dotfiles/.vimrc $HOME/.vimrc;
-        cp ./dotfiles/.zshrc $HOME/.zshrc;
-        cp ./zsh\ add-ons/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-theme;
-        cp ./vim\ packages/* $HOMW/.vim/;
-        break;;
-        No )  echo "Ok, I'll leave the old dotfiles."; break;;
-    esac
-done
+# Installing terminal tools: zsh, oh-my-zsh, vim
+prompt_install zsh
+if ! [ -z "${SHELL##*zsh*}" ];then
+  chsh -s $(which zsh); fi
+prompt_install oh-my-zsh "$HOME/.oh-my-zsh"
+prompt_install macvim
 
-printf "\nPlease log out and log back in for default shell to be initialized.\n"
+# Installing atom & select packages
+brew tap caskroom/cask
+brew cask install atom
+apm_install_by_list atom-package-list.txt
+
+# Replacing old dotfiles
+printf "Replacing dotfiles...\n\n"
+cp -R ./dotfiles/.vimrc $HOME/.vimrc
+cp -R ./dotfiles/.zshrc $HOME/.zshrc
+sed -i -e "2s/rjhill/${USER}/g" $HOME/.zshrc
+cp -R ./zsh\ add-ons/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-theme
+mkdir -p $HOME/.vim/
+cp -R ./vim\ packages/* $HOME/.vim/
+
+
+printf "\nPlease log out and log back in for default shell to be initialized.\n\n"

@@ -2,23 +2,24 @@ echo "Prepping dotfiles and preferences for github..."
 echo
 
 # copy dotfiles
-cp $HOME/.vimrc ./dotfiles/.vimrc
-cp $HOME/.zshrc ./dotfiles/.zshrc
+cp -R  -R  $HOME/.vimrc ./dotfiles/.vimrc
+cp -R  $HOME/.zshrc ./dotfiles/.zshrc
 
 # copy atom's package list into a txt file
 apm list --installed --bare > atom-package-list.txt
+sed -i -e 's/@.*//g' ./atom-package-list.txt;
 
 # copy iTerm2 preferences
-cp /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
+cp -R  /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
 
 # copy zsh plugins
-cp ~/.zsh/* ./zsh\ add-ons/
+cp -R  ~/.zsh/* ./zsh\ add-ons/
 
 # copy zsh theme
-cp $ZSH/themes/ryanjhill ./zsh\ add-ons/
+cp -R  $ZSH/themes/ryanjhill ./zsh\ add-ons/
 
 # copy .vim content (packages & bundles)
-cp $HOME/.vim/* ./vim\ packages
+cp -R  $HOME/.vim/* ./vim\ packages
 
 echo "All backed up! Pushing to github..."
 echo
