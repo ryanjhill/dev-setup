@@ -1,0 +1,133 @@
+# This file is used by Flex Tool Bar to create buttons on your Tool Bar.
+# For more information how to use this package and create your own buttons,
+#   read the documentation on https://atom.io/packages/flex-tool-bar
+
+[
+  {
+    type: "button"
+    icon: "file-text"
+    callback: "application:new-file"
+    tooltip: "Open New File"
+  }
+  {
+    type: "button"
+    icon: "file-directory"
+    callback: "application:open-file"
+    tooltip: "Open File"
+  }
+  {
+    type: "button"
+    icon: "content-save"
+    iconset: "mdi"
+    callback: "core:save"
+    tooltip: "Save"
+  }
+  {
+    type: "button"
+    icon: "sitemap"
+    iconset: "mdi"
+    callback: "tree-view:toggle"
+    tooltip: "Toggle File View"
+  }
+  {
+    type: "button"
+    icon: "cloud-download"
+    callback: "remote-ftp:toggle"
+    tooltip: "Toggle SFTP Connect"
+  }
+  {
+    type: "button"
+    icon: "view-agenda"
+    iconset: "mdi"
+    callback: "pane:split-right"
+    tooltip: "Split Vertical"
+    style:
+      transform: "rotate(90deg)"
+  }
+  {
+    type: "button"
+    icon: "view-agenda"
+    iconset: "mdi"
+    callback: "pane:split-down"
+    tooltip: "Split Horizontal"
+  }
+  {
+    type: "button"
+    icon: "map2"
+    iconset: "icomoon"
+    callback: "minimap:toggle"
+    tooltip: "Toggle Minimap"
+  }
+  {
+    type: "button"
+    icon: "arrows-alt"
+    iconset: "fa"
+    callback: "window:toggle-full-screen"
+    tooltip: "Fullscreen"
+  }
+  {
+    type: "button"
+    icon: "format-indent-increase"
+    iconset: "mdi"
+    callback: "editor:auto-indent"
+    tooltip: "Auto-indent"
+  }
+  {
+    type: "button"
+    icon: "unfold-less"
+    iconset: "mdi"
+    callback: "editor:fold-current-row"
+    tooltip: "Fold In"
+  }
+  {
+    type: "button"
+    icon: "unfold-more"
+    iconset: "mdi"
+    callback: "editor:unfold-current-row"
+    tooltip: "Unfold"
+  }
+  {
+    type: "button"
+    icon: "magnify"
+    iconset: "mdi"
+    callback: "find-and-replace:toggle"
+    tooltip: "Find..."
+  }
+  {
+    type: "button"
+    icon: "sync"
+    callback: "window:reload"
+    tooltip: "Reload Page"
+  }
+  {
+    type: "button"
+    icon: "terminal"
+    callback: "window:toggle-dev-tools"
+    tooltip: "Dev Tools"
+  }
+  {
+    type: "button"
+    icon: "gear"
+    callback: "settings-view:open"
+    tooltip: "Open Atom Settings"
+  }
+
+  {
+    type: "spacer"
+  }
+
+  {
+    type: "button"
+    icon: "paint-format"
+    iconset: "icomoon"
+    callback: "application:open-your-stylesheet"
+    tooltip: "Atom Open Stylesheet"
+  }
+  {
+    type: "button"
+    icon: "plus"
+    callback: "flex-tool-bar:edit-config-file"
+    tooltip: "Add to Toolbar"
+  }
+
+]

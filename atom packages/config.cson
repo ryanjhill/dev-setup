@@ -1,0 +1,30 @@
+"*":
+  "atom-material-ui":
+    fonts: {}
+  core:
+    disabledPackages: [
+      "jshint"
+      "indent-guide-improved"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+    titleBar: "custom"
+  editor:
+    fontFamily: "Hack"
+    lineHeight: 1.6
+    showIndentGuide: true
+    softWrap: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "b4020830-d626-6a94-7e82-052ef0924c28"
+  minimap:
+    disablePythonDocLinks: true
+  "tool-bar":
+    position: "Left"
+  welcome:
+    showOnStartup: false
+  wordcount:
+    noextension: true
