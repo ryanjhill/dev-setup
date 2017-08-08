@@ -1,4 +1,4 @@
-echo "Prepping dotfiles and preferences for github..."
+sudo echo "Prepping dotfiles and preferences for github..."
 echo
 
 # copy dotfiles

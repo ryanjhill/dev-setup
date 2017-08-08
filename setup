@@ -47,7 +47,7 @@ select yn in "Yes" "No"; do
 done
 
 # Make sure xcode is up-to-date! If it's not then stuff can go wonky
-xcode-select --install
+sudo xcode-select --install
 
 # Installing homebrew and cask
 prompt_install Homebrew brew
