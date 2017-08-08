@@ -7,7 +7,7 @@ cp -R  $HOME/.zshrc ./dotfiles/.zshrc
 
 # copy atom's package list, also save preferences
 apm list --installed --bare > atom-package-list.txt
-sed -i 's/@.*//g' ./atom-package-list-filtered.txt
+sed 's/@.*//g' ./atom-package-list-filtered.txt
 cp -R $HOME/.atom/*.* ./atom\ packages/
 
 # copy zsh plugins
