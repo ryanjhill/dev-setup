@@ -62,7 +62,7 @@ prompt_install macvim
 # Installing atom & select packages
 brew tap caskroom/cask
 brew cask install atom
-apm_install_by_list atom-package-list-filtered.txt
+apm_install_by_list atom-package-list.txt.filter
 cp -R ./atom\ packages/* $HOME/.atom/
 
 # Replacing old dotfiles
