@@ -12,3 +12,4 @@ relative-numbers
 tool-bar
 vim-mode
 wordcount
+

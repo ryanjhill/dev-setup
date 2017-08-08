@@ -13,10 +13,10 @@ sed -i -e 's/@.*//g' ./atom-package-list.txt;
 cp -R  /Users/rjhill/Code/iTerm2/com.googlecode.iterm2.plist com.googlecode.iterm2.plist
 
 # copy zsh plugins
-cp -R  ~/.zsh/* ./zsh\ add-ons/
+cp -R  ~/.zsh/* ./zsh\ files/zsh\ plugins/
 
 # copy zsh theme
-cp -R  $ZSH/themes/ryanjhill ./zsh\ add-ons/
+cp -R  $ZSH/themes/ryanjhill.zsh-theme ./zsh\ files/
 
 # copy .vim content (packages & bundles)
 cp -R  $HOME/.vim/* ./vim\ packages
