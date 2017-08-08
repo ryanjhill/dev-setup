@@ -1,1 +1,1 @@
-tmp2.txt -i /$1/+11d Better Touch Tool Preferences.json
+tmp2.txt -i //+11d/ Better Touch Tool Preferences.json
