@@ -36,4 +36,4 @@ git push origin master
 
 echo
 echo "Done! Pushed to github on $now"
-echo "You might want to back up BTT settings manually."
+echo
