@@ -20,8 +20,7 @@ cp -R  $ZSH/themes/ryanjhill.zsh-theme ./zsh\ files/
 sudo cp -R  $HOME/.vim/* ./vim\ packages
 
 # creating public version of BTT w/o personal links
-# TODO
-
+python depersonalize.py > BTT-public.json
 
 echo "All backed up! Pushing to github..."
 echo
