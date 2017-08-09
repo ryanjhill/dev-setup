@@ -15,4 +15,5 @@ for element in content:
                     del element["BTTTriggers"][count]
             count -= 1
 
-pprint(data)
+with open('./BTT-public.json', "w") as out_file:
+    json.dump(data, out_file)
