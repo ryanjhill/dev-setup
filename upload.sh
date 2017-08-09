@@ -16,8 +16,9 @@ sudo cp -R  ~/.zsh/* ./zsh\ files/zsh\ plugins/
 # copy zsh theme
 cp -R  $ZSH/themes/ryanjhill.zsh-theme ./zsh\ files/
 
-# copy .vim content (packages & bundles)
-sudo cp -R  $HOME/.vim/* ./vim\ packages
+# copy .vim content (pathogen & bundles)
+sudo cp -R  $HOME/.vim/autoload/* ./vim\ packages
+mkdir -p ./vim\ packages/bundle
 
 # creating public version of BTT w/o personal links
 python depersonalize.py
@@ -36,4 +37,3 @@ git push origin master
 
 echo
 echo "Done! Pushed to github on $now"
-echo

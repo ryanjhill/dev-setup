@@ -71,8 +71,12 @@ cp -R ./dotfiles/.vimrc $HOME/.vimrc
 cp -R ./dotfiles/.zshrc $HOME/.zshrc
 sed -i -e "2s/rjhill/${USER}/g" $HOME/.zshrc
 cp -R ./zsh\ files/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-theme
+
+# Adding vim packages
 mkdir -p $HOME/.vim/
 cp -R ./vim\ packages/* $HOME/.vim/
-
+git clone https://github.com/ratazzi/blackboard.vim $HOME/.vim/bundle
+git clone https://github.com/myusuf3/numbers.vim $HOME/.vim/bundle
+git clone https://github.com/vim-airline/vim-airline $HOME/.vim/bundle
 
 printf "\nPlease log out and log back in for default shell to be initialized.\n\n"
