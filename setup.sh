@@ -57,7 +57,9 @@ prompt_install zsh
 if ! [ -z "${SHELL##*zsh*}" ];then
   chsh -s $(which zsh); fi
 prompt_install oh-my-zsh "$HOME/.oh-my-zsh"
+cp -R ./zsh\ files/zsh\ plugins/* $HOME/.zsh/
 prompt_install macvim
+
 
 # Installing atom & select packages
 brew tap caskroom/cask
@@ -75,8 +77,8 @@ cp -R ./zsh\ files/ryanjhill.zsh-theme $HOME/.oh-my-zsh/themes/ryanjhill.zsh-the
 # Adding vim packages
 mkdir -p $HOME/.vim/
 cp -R ./vim\ packages/* $HOME/.vim/
-git clone https://github.com/ratazzi/blackboard.vim $HOME/.vim/bundle
-git clone https://github.com/myusuf3/numbers.vim $HOME/.vim/bundle
-git clone https://github.com/vim-airline/vim-airline $HOME/.vim/bundle
+git clone https://github.com/ratazzi/blackboard.vim $HOME/.vim/bundle/blackboard
+git clone https://github.com/myusuf3/numbers.vim $HOME/.vim/bundle/numbers
+git clone https://github.com/vim-airline/vim-airline $HOME/.vim/bundle/vim-airline
 
 printf "\nPlease log out and log back in for default shell to be initialized.\n\n"
