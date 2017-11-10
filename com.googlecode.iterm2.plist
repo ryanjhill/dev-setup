@@ -220,7 +220,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Code/iTerm2</string>
+	<string>~/Code/dev setup</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -268,15 +268,17 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 600 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>408 538 918 381 0 0 1920 1177 </string>
+	<string>850 630 918 381 0 0 1920 1177 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>264 440 640 527 0 0 1920 1177 </string>
+	<string>1245 246 640 867 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>862 634 640 527 0 0 1920 1177 </string>
+	<string>477 470 640 527 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>669 624 640 527 0 0 1920 1177 </string>
+	<string>457 520 640 527 0 0 1920 1177 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>448 270 640 527 0 0 1920 1177 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -397,12 +399,16 @@
 			</dict>
 			<key>Ansi 3 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.8000359978570134</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.81146240234375</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
@@ -1133,7 +1139,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/rjhill/Code/iTerm2</string>
+	<string>/Users/rjhill/Code/dev setup</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1153,7 +1159,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-04T07:40:05Z</date>
+	<date>2017-08-08T07:04:01Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -1207,7 +1213,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20170801-nightly</string>
+	<string>3.1.20170807-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

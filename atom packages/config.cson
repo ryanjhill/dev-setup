@@ -5,6 +5,7 @@
     disabledPackages: [
       "jshint"
     ]
+    packagesWithKeymapsDisabled: []
     telemetryConsent: "limited"
     themes: [
       "atom-material-ui"

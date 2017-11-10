@@ -1,7 +1,9 @@
 Remote-FTP
+atom-ide-ui
 atom-material-ui
 ex-mode
 flex-tool-bar
+ide-flowtype
 indent-guide-improved
 jshint
 language-haskell
